@@ -1,0 +1,16 @@
+name: Temporary thesis transfer
+on:
+  push:
+    branches:
+      - tmp-thesis-transfer-20260922
+  workflow_dispatch:
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesis-transfer
+          path: tmp/thesis_translation_slim_b64.txt
+          retention-days: 1
